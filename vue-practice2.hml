@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>VUE-practice2</title>
+
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+<!--Using an Alternative v-if Syntax HTML-->
+	<!-- <div id="app">
+	<p v-if="show">You can see me!</p>
+	<p v-else>Now you see me!</p>
+
+	<template v-if="show">
+		<h1>Heading</h1>
+		<p>Inside of template...</p>
+	</template>
+
+	<p v-show="show">Do you also see me?</p>
+
+	<button @click= "show = !show">Switch</button>
+	</div> -->
+	<div id="app">
+	<ul>
+		<li v-for="(ingredient, i) in ingredients" :key="ingredient">{{ingredient}}({{i}})</li>
+	</ul>
+	<!-- v-bind=""     shorter:    :key="" -->
+	<button @click="ingredients.push('spices')">PUSH</button>
+
+	<hr>
+
+	<ul>
+		<li v-for="person in persons">
+			<div v-for="(value, key, index) in person">{{key}}:{{value}}({{index}})</div>
+		</li>
+	</ul>
+
+	<hr>
+	<span v-for="n in 10">{{ n }}</span>
+
+	<hr>
+
+	<template v-for="(ingredient, index) in ingredients">
+		<h1>{{ingredient}}</h1>
+		<p>{{index}}</p>
+	</template>
+
+	</div>
+	<!--Loop true numbers from 1-10-->
+
+
+
+
+
+
+<!--Using an Alternative v-if Syntax SCRIPT-->
+	<!-- <script>
+		new Vue({
+			el: '#app',
+			data: {
+				show: true
+			}
+		});
+	</script> -->
+	<script>
+	new Vue({
+		el: '#app',
+		data: {
+			ingredients: ['meat', 'fruit', 'cookies'],
+			persons: [
+				{name: 'Max', age: 27, color: 'red'},
+				{name: 'Anna', age: 'unknown', color: 'blue'}
+			]
+		}
+	});
+	</script>
+</body>
+</html>	
